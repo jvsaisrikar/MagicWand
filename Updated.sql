@@ -1,7 +1,7 @@
 -- Table 1 customer
 create table customer (
     phone_number number not null primary key,
-    "name" varchar(30) not null,
+    name varchar(30) not null,
     address varchar(30) not null
 );
 
@@ -20,7 +20,7 @@ create table service_contract (
 -- Table 3 contract_deleted
 --Changing name and address to varchar(30) here as customer table has 30 limit
 create table contract_deleted (
-    "name" varchar(30) not null,
+    name varchar(30) not null,
     address varchar(30) not null,
     phone_number number not null,
     date_of_cancellation date not null
