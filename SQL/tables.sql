@@ -1,12 +1,12 @@
--- Table 1 customer
+-- Table 1 customer Form
 create table customer (
     phone_number number not null primary key,
     name varchar(30) not null,
     address varchar(30) not null
 );
 
--- Table 2 service_contract
--- .. contract status: Active/Terminated
+-- Table 2 service_contract Form
+-- .. contract status: Active/Inactive
 -- .. when contract is Terminated end date should be changed, this same end date will be used in contract_deleted table.
 create table service_contract (
     contract_id number not null primary key,
@@ -26,7 +26,7 @@ create table contract_deleted (
     date_of_cancellation date not null
 );
 
--- Table 4 repair_job
+-- Table 4 repair_job Form
 create table repair_job (
     repair_id number not null primary key,
     bill number not null,
@@ -37,30 +37,32 @@ create table repair_job (
     constraint FK_repair_job foreign key (phone_number) references customer(phone_number)
 );
 
--- Table 5 service_item
+-- Table 5 service_item Form
 -- wrong in crows foot number stored as number(4) <- this doesn't exist in sql
 -- wrong service_item as foreign key
+-- ** This table working without quotes not sure why where as monitor doesn't work
 create table service_item (
     item_id number not null primary key,
     device_type varchar(15) not null,
-    year number not null,
+    "year" number not null,
     make varchar(20) not null,
-    model varchar(20) not null
+    "model" varchar(20) not null
 )
 
 -- Table 6 Fee
-create table Fee (
-    device varchar(15) not null primary key,
+CREATE TABLE Fee (
+    device varchar(15),
     rate number not null,
-    type_of_service varchar(15) not null
-)
+    type_of_service varchar(15) not null CHECK (type_of_service IN ('hardware', 'software'))
+);
 
--- Table 7 Monitor
+-- Table 7 Monitor Form
+-- ** This table doesn't work without quotes; need to check
 create table Monitor (
-    model varchar(20) not null,
+    "model" varchar(20) not null,
     make varchar(20) not null,
-    size number not null,
-    year date not null
+    "size" number not null,
+    "year" date not null
 )
 
 
@@ -69,15 +71,13 @@ create trigger entry_contract_deleted (
     after update of status
     on service_contract 
     for each row 
-    when (new.status='terminated')
+    when (new.status='Inactive')
     begin
         insert into contract_deleted(new.name, new.address, new.phone_number, new.end_date)
     
 )
 
-
---Asumptions:
+-- Asumptions:
 This can be same
 Table service_contract    repair_job      service_item
       contract_id =       machine_id =    item_id
-
