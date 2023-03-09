@@ -27,14 +27,16 @@ create table contract_deleted (
 );
 
 -- Table 4 repair_job Form
+-- changing adding machine_id as foreign key to service_item item_id, when ever a machine_id is entered as part of repair job it should exist in Service Item Table.
 create table repair_job (
     repair_id number not null primary key,
     bill number not null,
     date_of_service date not null,
     phone_number number not null,
-    machine_id varchar(20) not null,
+    machine_id number not null,
     type_of_service varchar(20) not null,
-    constraint FK_repair_job foreign key (phone_number) references customer(phone_number)
+    constraint FK_repair_job foreign key (phone_number) references customer(phone_number),
+    constraint FK_repair_job1 foreign key (machine_id) references service_item(item_id)
 );
 
 -- Table 5 service_item Form
@@ -51,7 +53,7 @@ create table service_item (
 
 -- Table 6 Fee
 CREATE TABLE Fee (
-    device varchar(15),
+    device varchar(15) not null,
     rate number not null,
     type_of_service varchar(15) not null CHECK (type_of_service IN ('hardware', 'software'))
 );
@@ -63,18 +65,6 @@ create table Monitor (
     make varchar(20) not null,
     "size" number not null,
     "year" date not null
-);
-
-
--- Trigger
-create trigger entry_contract_deleted (
-    after update of status
-    on service_contract 
-    for each row 
-    when (new.status='Inactive')
-    begin
-        insert into contract_deleted(new.name, new.address, new.phone_number, new.end_date)
-    
 );
 
 -- Asumptions:

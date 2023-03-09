@@ -22,7 +22,8 @@ INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_numbe
 
 --Fee
 -- no rate hardware and software
-INSERT INTO FEE(rate,type_of_service) values (15,'hardware');
+INSERT INTO FEE(device,rate,type_of_service) values ('desktop',15,'hardware');
+INSERT INTO FEE(device,rate,type_of_service) values ('laptop',10,'hardware');
 INSERT INTO FEE(device,rate,type_of_service) values ('desktop',15,'software');
 INSERT INTO FEE(device,rate,type_of_service) values ('laptop',10,'software');
 INSERT INTO FEE(device,rate,type_of_service) values ('printer',5,'hardware');
