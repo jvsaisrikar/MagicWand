@@ -47,7 +47,7 @@ create table service_item (
     "year" number not null,
     make varchar(20) not null,
     "model" varchar(20) not null
-)
+);
 
 -- Table 6 Fee
 CREATE TABLE Fee (
@@ -63,7 +63,7 @@ create table Monitor (
     make varchar(20) not null,
     "size" number not null,
     "year" date not null
-)
+);
 
 
 -- Trigger
@@ -75,7 +75,7 @@ create trigger entry_contract_deleted (
     begin
         insert into contract_deleted(new.name, new.address, new.phone_number, new.end_date)
     
-)
+);
 
 -- Asumptions:
 This can be same
