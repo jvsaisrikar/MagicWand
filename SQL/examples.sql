@@ -16,4 +16,14 @@ BEGIN
 END;
 
 
---Adding this line
+
+--Trigger which we DIDN'T use
+create trigger entry_contract_deleted (
+    after update of status
+    on service_contract 
+    for each row 
+    when (new.status='Inactive')
+    begin
+        insert into contract_deleted(new.name, new.address, new.phone_number, new.end_date)
+    
+);
