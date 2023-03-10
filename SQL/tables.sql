@@ -28,9 +28,11 @@ create table contract_deleted (
 
 -- Table 4 repair_job Form
 -- changing adding machine_id as foreign key to service_item item_id, when ever a machine_id is entered as part of repair job it should exist in Service Item Table.
+-- changing added itemised_bill varchar(100) not null,
 create table repair_job (
     repair_id number not null primary key,
     bill number not null,
+    itemised_bill varchar(100) not null,
     date_of_service date not null,
     phone_number number not null,
     machine_id number not null,
@@ -55,7 +57,7 @@ create table service_item (
 CREATE TABLE Fee (
     device varchar(15) not null,
     rate number not null,
-    type_of_service varchar(15) not null CHECK (type_of_service IN ('hardware', 'software'))
+    type_of_service varchar(15) not null CHECK (type_of_service IN ('hardware', 'software', 'labour'))
 );
 
 -- Table 7 Monitor Form
