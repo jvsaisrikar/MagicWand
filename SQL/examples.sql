@@ -17,7 +17,7 @@ END;
 
 
 
---Trigger which we DIDN'T use
+-- Trigger which we DIDN'T use
 create trigger entry_contract_deleted (
     after update of status
     on service_contract 

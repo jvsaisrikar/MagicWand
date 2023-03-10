@@ -1,6 +1,5 @@
 create or replace PROCEDURE add_repair_job ( 
     p_repair_id IN repair_job.repair_id%TYPE, 
-    p_date_of_service IN repair_job.date_of_service%TYPE, 
     p_phone_number IN customer.phone_number%TYPE, 
     p_machine_id IN service_item.item_id%TYPE, 
     p_type_of_service IN repair_job.type_of_service%TYPE, 
@@ -56,17 +55,19 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('The labour rate is ' || var_labour_rate);
         DBMS_OUTPUT.PUT_LINE('Not in Contract the total rate with labour is ' || var_total);
     ELSE
-        var_service_item_covered := 'yes';
+    var_service_item_covered := 'yes';
         DBMS_OUTPUT.PUT_LINE('In Contract the total rate is ' || var_total);
     END IF;    
     DBMS_OUTPUT.PUT_LINE('Itemised Bill: ' || var_itemised_bill);
-
+    
+    -- getting sys date
+    p_out_date_of_service := SYSDATE;
+    
     -- insert into repair_job
-    INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (p_repair_id, var_total, var_itemised_bill, p_date_of_service, p_phone_number, p_machine_id, p_type_of_service);
+    INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (p_repair_id, var_total, var_itemised_bill, p_out_date_of_service, p_phone_number, p_machine_id, p_type_of_service);
 
     --Loading all remaining values that are not loaded in any sql statements
     p_out_phone_number := p_phone_number;
-    p_out_date_of_service := SYSDATE;
     p_out_machine_id := p_machine_id;
     p_out_type_of_service := p_type_of_service;
     p_out_service_item_covered := var_service_item_covered;
@@ -83,32 +84,4 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Service Item Covered: ' || p_out_service_item_covered);
     DBMS_OUTPUT.PUT_LINE('Itemised Charges: ' || p_out_itemised_charges);
 
-END;
-
-SET SERVEROUTPUT ON
--- Running Procedure
-DECLARE
-    var_name customer.name%TYPE;
-    var_phone_number customer.phone_number%TYPE;
-    var_address customer.address%TYPE;
-    var_date_of_service repair_job.date_of_service%TYPE;
-    var_machine_id service_item.item_id%TYPE;
-    var_type_of_service repair_job.type_of_service%TYPE;
-    var_service_item_covered varchar(3);
-    var_itemised_charges repair_job.itemised_bill%TYPE;
-BEGIN
-    -- In contract
-    add_repair_job(1, '08-03-2023', '0874559138', 3, 'hardware', my_varray_type('powercable', 'processor'),var_name, var_phone_number, var_address, var_date_of_service, var_machine_id, var_type_of_service, var_service_item_covered, var_itemised_charges);
-    -- Not in contract
-    add_repair_job(2, '08-03-2023', '0874559138', 112, 'hardware', my_varray_type('powercable'),var_name, var_phone_number, var_address, var_date_of_service, var_machine_id, var_type_of_service, var_service_item_covered, var_itemised_charges);
-    -- Printing all output values
-    DBMS_OUTPUT.PUT_LINE('**** Priniting all output values ****');
-    DBMS_OUTPUT.PUT_LINE('Name: ' || var_name);
-    DBMS_OUTPUT.PUT_LINE('Phone Number: ' || var_phone_number);
-    DBMS_OUTPUT.PUT_LINE('Address: ' || var_address);
-    DBMS_OUTPUT.PUT_LINE('Date of Service: ' || var_date_of_service);
-    DBMS_OUTPUT.PUT_LINE('Machine Id: ' || var_machine_id);
-    DBMS_OUTPUT.PUT_LINE('Type of Service: ' || var_type_of_service);
-    DBMS_OUTPUT.PUT_LINE('Service Item Covered: ' || var_service_item_covered);
-    DBMS_OUTPUT.PUT_LINE('Itemised Charges: ' || var_itemised_charges);
 END;
