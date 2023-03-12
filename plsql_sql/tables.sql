@@ -6,8 +6,8 @@ create table customer (
 );
 
 -- Table 2 service_contract Form
--- .. contract status: Active/Inactive
--- .. when contract is Terminated end date should be changed, this same end date will be used in contract_deleted table.
+-- contract status: Active/Inactive
+-- when contract is Terminated end date should be changed, this same end date will be used in contract_deleted table.
 create table service_contract (
     contract_id number not null primary key,
     start_date date not null,

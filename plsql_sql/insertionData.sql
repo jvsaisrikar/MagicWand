@@ -10,15 +10,16 @@ INSERT INTO CUSTOMER (name,phone_number,address) VALUES ('Clifford Nguyen','0861
 
 
 -- Service Contract
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('1','01-03-2023','01-03-2024','active','0874559138');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('2','30-03-2023','01-03-2024','active','0874559138');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('3','30-04-2023','30-04-2024','active','0874559138');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('4','30-05-2023','01-05-2024','active','0257792152');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('5','30-06-2023','30-03-2024','active','0239363595');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('6','10-07-2023','10-07-2024','active','0209889102');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('7','10-07-2023','10-07-2024','active','0209889102');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('8','10-07-2023','10-07-2024','active','05602465271');
-INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('9','30-03-2023','30-03-2024','active','0874559138');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('1','01-04-2022','01-04-2023','active','0874559138');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('2','01-05-2022','01-05-2023','active','0874559138');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('3','01-06-2022','01-06-2023','active','0874559138');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('4','01-06-2022','01-06-2023','active','0257792152');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('5','01-07-2022','01-07-2023','active','0239363595');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('6','01-08-2022','01-08-2023','active','0209889102');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('7','01-09-2022','01-09-2023','active','0209889102');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('8','01-10-2022','01-10-2023','active','0560246527');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('9','01-11-2022','01-11-2023','active','0874559138');
+INSERT INTO service_contract (contract_id,start_date,end_date,status,phone_number) VALUES ('10','01-03-2022','01-03-2023','active','0239363595');
 
 
 --Fee
@@ -37,7 +38,10 @@ INSERT INTO FEE(device,rate,type_of_service) values ('processor', 100, 'hardware
 INSERT INTO FEE(device,rate,type_of_service) values ('desktop',20,'labour');
 INSERT INTO FEE(device,rate,type_of_service) values ('laptop',25,'labour');
 INSERT INTO FEE(device,rate,type_of_service) values ('printer',15,'labour');
-
+-- Software Cost
+INSERT INTO FEE(device,rate,type_of_service) values ('antivirus', 10, 'software');
+INSERT INTO FEE(device,rate,type_of_service) values ('microsoft', 15, 'software');
+INSERT INTO FEE(device,rate,type_of_service) values ('gta5', 20, 'software');
 
 -- Service Item //This is a inventory if the item_id here matches with contractId and Contract status is active it is part of Contract, if no match not part of contract.
 INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('1', 'desktop', '2015', 'LG', 'model1');
@@ -60,3 +64,10 @@ INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('116',
 INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('117', 'laptop', '2018', 'Asus', 'model8');
 INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('119', 'printer', '2021', 'Brother', 'model9');
 INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('110', 'desktop', '2016', 'HP', 'model10');
+
+
+--Repair Job
+-- For repair job entries might not be in SYNC with here delting and adding directly in backend for testing
+-- In Contract
+INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (1, 100, 'powercable:50,processor:50,', '03-03-2023', 0874559138, 1, 'hardware');
+INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (3, 112, 'powercable:50,processor:50,heatsink:12', '04-03-2023', 0874559138, 1, 'hardware');
