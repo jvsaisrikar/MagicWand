@@ -291,3 +291,82 @@ Total revenue for 7/2022: $57
 
 
 -- *************************************************************************************
+
+
+-- extra credit feature, display customer with max repairs, favourite customer
+DECLARE
+  v_phone_number customer.phone_number%TYPE;
+  v_name customer.name%TYPE;
+  v_address customer.address%TYPE;
+  v_repair_count NUMBER;
+BEGIN
+  max_repairs_customer(v_phone_number, v_name, v_address, v_repair_count);
+  DBMS_OUTPUT.PUT_LINE('**** Calling Procedure Output *****');
+  DBMS_OUTPUT.PUT_LINE('Customer with most repairs:');
+  DBMS_OUTPUT.PUT_LINE('Phone Number: ' || v_phone_number);
+  DBMS_OUTPUT.PUT_LINE('Name: ' || v_name);
+  DBMS_OUTPUT.PUT_LINE('Address: ' || v_address);
+  DBMS_OUTPUT.PUT_LINE('Repair Count: ' || v_repair_count);
+END;
+
+---------------
+SAMPLE OUTPUT
+---------------
+
+**** Procedure Output ****
+Phone Number: 874559138
+Name: Fay Henderson
+Address: 629-8745 Convallis Road
+Repair Count: 3
+**** Calling Procedure Output *****
+Customer with most repairs:
+Phone Number: 874559138
+Name: Fay Henderson
+Address: 629-8745 Convallis Road
+Repair Count: 3
+
+-- *************************************************************************************
+
+
+-- extra credit feature, find contracts that are about to expire pass in number of days as input like(30), (80)
+set SERVEROUTPUT ON
+DECLARE
+  v_cursor SYS_REFCURSOR;
+  v_contract service_contract%ROWTYPE;
+BEGIN
+  find_expiring_contracts(p_interval => 80, p_cursor => v_cursor);
+
+  LOOP
+    FETCH v_cursor INTO v_contract;
+    EXIT WHEN v_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('Contract ' || v_contract.contract_id || ' for phone number ' || v_contract.phone_number || ' will expire soon on ' || v_contract.end_date);
+  END LOOP;
+
+  CLOSE v_cursor;
+END;
+
+---------------
+SAMPLE OUTPUT
+---------------
+
+Contract 1 for phone number 874559138 will expire soon on 01-04-23
+Contract 2 for phone number 874559138 will expire soon on 01-05-23
+Contract 3 for phone number 874559138 will expire soon on 01-06-23
+Contract 4 for phone number 257792152 will expire soon on 01-06-23
+
+-- *************************************************************************************
+
+-- extra credit feature, to display the average bill in repair job
+SET SERVEROUTPUT ON
+DECLARE
+    v_avg_bill repair_job.bill%TYPE;
+BEGIN
+    get_avg_repair_bill(p_out_avg_bill => v_avg_bill);
+    DBMS_OUTPUT.PUT_LINE('The average repair bill is: ' || v_avg_bill);
+END;
+
+---------------
+SAMPLE OUTPUT
+---------------
+
+The average repair bill is: 23
