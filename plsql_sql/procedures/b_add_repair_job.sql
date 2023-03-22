@@ -1,5 +1,5 @@
 -- b) Creating at least two repair jobs, where one repair job has a repair item that is included in a service contract and one repair job that has a repair item with no service contract.
-create or replace PROCEDURE add_repair_job ( 
+CREATE OR REPLACE PROCEDURE add_repair_job ( 
     p_repair_id IN repair_job.repair_id%TYPE, 
     p_date_of_service IN repair_job.date_of_service%TYPE,
     p_phone_number IN customer.phone_number%TYPE, 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Data</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Phone Number</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.ed }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

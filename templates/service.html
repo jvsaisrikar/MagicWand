@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contract Form</title>
+    <style>
+      form {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      select {
+        padding-right: 30px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' d='M7,10l5,5l5-5H7z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 16px 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Contract Form</h3>
+    <form onsubmit="return validateDates()" method="post">
+      <label for="contract_id">Contract ID:</label>
+      <input
+        type="number"
+        id="contract_id"
+        name="contract_id"
+        required
+      /><br /><br />
+
+      <label for="start_date">Start Date:</label>
+      <input type="date" id="start_date" name="start_date" /><br /><br />
+
+      <label for="end_date">End Date:</label>
+      <input type="date" id="end_date" name="end_date" /><br /><br />
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option></select
+      ><br /><br />
+
+      <label for="phone_number">Customer ID: (Phone Number)</label>
+      <input type="number" id="phone_number" name="phone_number" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function validateDates() {
+        var startDate = new Date(document.getElementById("start_date").value);
+        var endDate = new Date(document.getElementById("end_date").value);
+        if (endDate <= startDate) {
+          alert("End date must be greater than start date");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
+

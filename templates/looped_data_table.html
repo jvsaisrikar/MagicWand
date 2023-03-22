@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Review</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.start_date }}</td>
+            <td>{{ item.end_date }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.phone }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

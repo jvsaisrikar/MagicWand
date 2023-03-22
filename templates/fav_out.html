@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Favourite Customer Details</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone Nummber</th>
+          <th>Repair Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+          <tr>
+            <td>{{ item.out_name }}</td>
+            <td>{{ item.out_address }}</td>
+            <td>{{ item.out_phone }}</td>
+            <td>{{ item.out_count }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

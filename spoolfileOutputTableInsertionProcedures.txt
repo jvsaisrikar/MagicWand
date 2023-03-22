@@ -1,0 +1,216 @@
+
+Table CUSTOMER created.
+
+
+Table SERVICE_CONTRACT created.
+
+
+Table CONTRACT_DELETED created.
+
+
+Table SERVICE_ITEM created.
+
+
+Table REPAIR_JOB created.
+
+
+Table FEE created.
+
+
+Table MONITOR created.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+Procedure SERVICE_CONTRACT_DATA compiled
+
+
+Procedure ADD_REPAIR_JOB compiled
+
+
+Procedure DISPLAY_SERVICE_CONTRACT_BY_ID compiled
+
+
+Procedure DISPLAY_ALL_SERVICE_CONTRACTS_BY_CUSTOMER compiled
+
+
+Procedure DISPLAY_REPAIR_JOB compiled
+
+
+Procedure DISPLAY_ALL_ACTIVE_SERVICE_CONTRACT_REVENUE compiled
+
+
+Procedure GET_TOTAL_REPAIR_JOB_REVENUE_SPECIFIED_MONTH_YEAR compiled
+
+
+Procedure GET_AVG_REPAIR_BILL compiled
+
+
+Procedure FIND_EXPIRING_CONTRACTS compiled
+
+
+Procedure MAX_REPAIRS_CUSTOMER compiled
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Repair Job Form</title>
+    <style>
+      form {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      select[multiple] {
+        height: 200px;
+      }
+
+      select[multiple] option {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      select[multiple] option:hover {
+        background-color: #f7f7f7;
+      }
+      input[type="submit"] {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Add Repair Job</h3>
+    <form method="POST">
+      <label for="repair_id">Repair ID:</label>
+      <input type="number" id="repair_id" name="repair_id" /><br /><br />
+
+      <label for="phone_number">Phone Number:</label>
+      <input type="number" id="phone_number" name="phone_number" /><br /><br />
+
+      <label for="machine_id">Machine ID:</label>
+      <input type="number" id="machine_id" name="machine_id" /><br /><br />
+
+      <label for="type_of_service">Type of Service:</label>
+      <select id="type_of_service" name="type_of_service[]">
+        <option value="hardware">Hardware</option>
+        <option value="software">Software</option></select
+      ><br /><br />
+
+      <label for="parts_list">Parts List:</label>
+      <select multiple id="parts_list" name="parts_list[]">
+        <option value="processor">Processor</option>
+        <option value="powercable">Powercable</option>
+        <option value="harddrive">Hard Drive</option>
+        <option value="heatsink">Heatsink</option>
+        <option value="gta5">GTA-5</option>
+        <option value="antivirus">Antivirus</option>
+        <option value="microsoft">Microsoft</option></select
+      ><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

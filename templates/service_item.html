@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Form</title>
+    <style>
+      form {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+
+      select {
+        padding-right: 30px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ccc' d='M7,10l5,5l5-5H7z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 16px 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Service Item</h3>
+
+    <form method="post">
+      <label for="item_id">Item ID:</label>
+      <input type="number" id="item_id" name="item_id" required /><br /><br />
+
+      <label for="device_type">Device Type:</label>
+      <select id="device_type" name="device_type">
+        <option value="desktop">Desktop</option>
+        <option value="laptop">Laptop</option>
+        <option value="printer">Printer</option>
+    </select>
+        <br /><br />
+
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year" required /><br /><br />
+
+      <label for="make">Make:</label>
+      <input type="text" id="make" name="make" required /><br /><br />
+
+      <label for="model">Model:</label>
+      <input type="text" id="model" name="model" required /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Table</title>
+    <style>
+      h3 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2> Display a repair job. This should include all the information about customer, each repair item and the itemized bill.</h2>
+    <br /><br />
+    <h3>Review</h3>
+    <br /><br />
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Address</th>
+          <th>Type of Device</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Date of Service</th>
+          <th>Type of Service</th>
+          <th>Itemised Charges</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+        <tr>
+          <td>{{ item.out_name }}</td>
+          <td>{{ item.out_phone_number }}</td>
+          <td>{{ item.out_address }}</td>
+          <td>{{ item.out_device_type }}</td>
+          <td>{{ item.out_make }}</td>
+          <td>{{ item.out_model }}</td>
+          <td>{{ item.out_year }}</td>
+          <td>{{ item.out_date_of_service }}</td>
+          <td>{{ item.out_type_service }}</td>
+          <td>
+            {% for x in item.out_itemised_charges %} {{ x }}
+            <br />
+            {% endfor %}
+          </td>
+          <td>{{ item.out_total }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
