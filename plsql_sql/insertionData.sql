@@ -44,30 +44,30 @@ INSERT INTO FEE(device,rate,type_of_service) values ('microsoft', 15, 'software'
 INSERT INTO FEE(device,rate,type_of_service) values ('gta5', 20, 'software');
 
 -- Service Item //This is a inventory if the item_id here matches with contractId and Contract status is active it is part of Contract, if no match not part of contract.
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('1', 'desktop', '2015', 'LG', 'model1');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('2', 'laptop', '2018', 'Dell', 'model2');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('3', 'printer', '2019', 'HP', 'model3');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('4', 'desktop', '2017', 'Lenovo', 'model4');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('5', 'laptop', '2020', 'Apple', 'model5');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('6', 'printer', '2016', 'Canon', 'model6');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('7', 'desktop', '2019', 'Acer', 'model7');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('8', 'laptop', '2018', 'Asus', 'model8');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('9', 'printer', '2021', 'Brother', 'model9');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('10', 'desktop', '2016', 'HP', 'model10');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('1', 'desktop', '2015', 'LG', 'model1');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('2', 'laptop', '2018', 'Dell', 'model2');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('3', 'printer', '2019', 'HP', 'model3');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('4', 'desktop', '2017', 'Lenovo', 'model4');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('5', 'laptop', '2020', 'Apple', 'model5');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('6', 'printer', '2016', 'Canon', 'model6');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('7', 'desktop', '2019', 'Acer', 'model7');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('8', 'laptop', '2018', 'Asus', 'model8');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('9', 'printer', '2021', 'Brother', 'model9');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('10', 'desktop', '2016', 'HP', 'model10');
 ---- Numbers above 100 are not in service contract
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('111', 'laptop', '2018', 'Dell', 'model2');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('112', 'printer', '2019', 'HP', 'model3');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('113', 'desktop', '2017', 'Lenovo', 'model4');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('114', 'laptop', '2020', 'Apple', 'model5');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('115', 'printer', '2016', 'Canon', 'model6');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('116', 'desktop', '2019', 'Acer', 'model7');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('117', 'laptop', '2018', 'Asus', 'model8');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('119', 'printer', '2021', 'Brother', 'model9');
-INSERT INTO service_item(item_id, device_type, year, make, model) VALUES ('110', 'desktop', '2016', 'HP', 'model10');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('111', 'laptop', '2018', 'Dell', 'model2');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('112', 'printer', '2019', 'HP', 'model3');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('113', 'desktop', '2017', 'Lenovo', 'model4');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('114', 'laptop', '2020', 'Apple', 'model5');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('115', 'printer', '2016', 'Canon', 'model6');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('116', 'desktop', '2019', 'Acer', 'model7');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('117', 'laptop', '2018', 'Asus', 'model8');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('119', 'printer', '2021', 'Brother', 'model9');
+INSERT INTO service_item(item_id, device_type, "year", make, "model") VALUES ('110', 'desktop', '2016', 'HP', 'model10');
 
 
 --Repair Job
--- For repair job entries might not be in SYNC with here delting and adding directly in backend for testing
+-- For repair job entries might not be in SYNC with here deleting and adding directly in backend for testing
 -- In Contract
 INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (1, 100, 'powercable:50,processor:50,', '03-03-2023', 0874559138, 1, 'hardware');
 INSERT INTO repair_job (repair_id, bill, itemised_bill, date_of_service, phone_number, machine_id, type_of_service) VALUES (3, 112, 'powercable:50,processor:50,heatsink:12', '04-03-2023', 0874559138, 1, 'hardware');

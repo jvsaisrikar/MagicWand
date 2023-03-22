@@ -1,4 +1,4 @@
--- To Run Procedure Repair Job
+--b) To Run Procedure Repair Job
 SET SERVEROUTPUT ON
 -- Running Procedure
 DECLARE
@@ -98,7 +98,7 @@ Total Bill: 27
 -- *************************************************************************************
 
 
---c) Sample Input to display a service contract by contract id.
+-- c) Sample Input to display a service contract by contract id.
 SET SERVEROUTPUT ON
 DECLARE
 v_cursor SYS_REFCURSOR;
@@ -292,6 +292,9 @@ Total revenue for 7/2022: $57
 
 -- *************************************************************************************
 
+--a) Only Insertion from UI attached screenshots in doc
+
+-- *************************************************************************************
 
 -- extra credit feature, display customer with max repairs, favourite customer
 DECLARE

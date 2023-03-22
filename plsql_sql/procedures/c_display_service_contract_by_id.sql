@@ -12,4 +12,3 @@ BEGIN
 		WHEN NO_DATA_FOUND THEN
 		     RAISE_APPLICATION_ERROR(-20001, 'Invalid contract ID');
 END;
-/
